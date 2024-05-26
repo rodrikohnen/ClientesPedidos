@@ -6,7 +6,7 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Administrador Clientes</h1>    
+    <h1 class="display-4">Administrar Clientes</h1>    
 </div>
 
 <div class="card">
@@ -15,6 +15,7 @@
     <div class="card-body">
 
         <a asp-action="Registrar" asp-controller="Home" class="btn btn-success btn-sm"> Nuevo Cliente </a>
+        <a asp-action="Productos" asp-controller="Home" class="btn btn-success btn-sm"> Productos </a>
 
         <hr />
         
@@ -24,7 +25,7 @@
                     <th>Id</th>
                     <th>Nombre y Apellido</th>
                     <th>Numero de Documento</th>
-                    <th>Tipo de Documento</th>
+                    <th>Tipo</th>
                     <th>Fecha de Nacimiento</th>
                     <th>Ultima Actualizacion</th>
                 </tr>
@@ -40,8 +41,9 @@
                         <td>@item.FechadeNacimiento</td>
                         <td>@item.FechaHoraActualizacion</td>
                         <td>
+                            <a asp-action="Pedidos" asp-controller="Home" asp-route-idCliente=@item.Id asp-route-Name=@item.NameLastname asp-route-Nro=@item.NroDocumento asp-route-Tipo=@item.TipoDeDocumento asp-route-FN=@item.FechadeNacimiento asp-route-FA=@item.FechaHoraActualizacion class ="btn btn-warning btn-sm"> Pedido </a>
                             <a asp-action="ActualizarCliente" asp-controller="Home" asp-route-idCliente=@item.Id class="btn btn-primary btn-sm"> Editar </a>
-                            <a asp-action="Eliminar" asp-controller="Home" asp-route-idCliente=@item.Id class="btn btn-danger btn-sm"> Eliminar </a>
+                            <a asp-action="Eliminar" asp-controller="Home" asp-route-idCliente=@item.Id class="btn btn-danger btn-sm"> Eliminar </a>                            
                         </td>
                     </tr>
                 }
@@ -50,3 +52,5 @@
         
     </div>
 </div>
+
+                            

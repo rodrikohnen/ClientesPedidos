@@ -36,7 +36,7 @@ namespace Clientes.DAL
             return _mapper.Map<MostrarClienteDTO>(cliente);
         }
 
-        public async Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int? id)
         {
             var cliente = await _dbcontext.Clientes.Where(x => x.Id == id).FirstOrDefaultAsync();
             if (cliente == null) throw new NotFoundException();
@@ -62,7 +62,7 @@ namespace Clientes.DAL
         }
 
 
-        public async Task<MostrarClienteDTO> ObtenerPorId(int id)
+        public async Task<MostrarClienteDTO> ObtenerPorId(int? id)
         {
             var cliente = await _dbcontext.Clientes.Where(x => x.Id == id).FirstOrDefaultAsync();
             if (cliente == null) throw new NotFoundException();

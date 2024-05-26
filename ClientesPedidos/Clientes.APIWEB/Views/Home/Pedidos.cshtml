@@ -1,0 +1,45 @@
+﻿@using Clientes.Models
+@model CrearPedidoModel
+@{
+    ViewData["Title"] = "Pedidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Pedido</h1>
+
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        
+        <a asp-action="AgregarPedido" asp-controller="Home" asp-route-idCliente=@Model.ClienteId asp-route-Name=@Model.ClienteName asp-route-Nro=@Model.ClienteNroDocumento asp-route-Tipo=@Model.ClienteTipoDeDocumento class="btn btn-success btn-sm"> Agregar Pedido </a>
+
+        <hr />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre y Apellido</th>
+                    <th>Numero de Documento</th>
+                    <th>Tipo</th>                                  
+                </tr>
+            </thead>
+            <tbody>               
+                    <tr>
+                        <td>@Model.ClienteId</td>
+                        <td>@Model.ClienteName</td>
+                        <td>@Model.ClienteNroDocumento</td>
+                        <td>@Model.ClienteTipoDeDocumento</td>                                              
+                    </tr>
+        
+            </tbody>
+        </table>       
+    </div>
+</div>
+
+
+
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-warning btn-sm"> Volver </a>

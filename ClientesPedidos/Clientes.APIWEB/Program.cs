@@ -1,5 +1,7 @@
 using Clientes.BLL;
+using Clientes.BLL.Servicio;
 using Clientes.DAL;
+using Clientes.DAL.Contrato;
 using Clientes.DAL.Dbcontext;
 using Clientes.Models;
 using Microsoft.EntityFrameworkCore;
@@ -45,10 +47,21 @@ namespace Clientes.APIWEB
             builder.Services.AddScoped<IClienteServicio, ClienteServicio>();
             builder.Services.AddScoped<IClienteRepositorio, ClienteRepositorio>();
 
+            //Productos
+            builder.Services.AddScoped<IProductoRepositorio, ProductoRepositorio>();
+            builder.Services.AddScoped<IProductoServicio, ProductoServicio>();
+
+            //Pedidos
+            builder.Services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
+            builder.Services.AddScoped<IPedidoServicio, PedidoServicio>();
+
+            //Renglones
+            builder.Services.AddScoped<IRenglonesPedidosServicio, RenglonesPedidosServicios>();
+            builder.Services.AddScoped<IRenglonesPedidosRepositorio, RenglonesPedidosRepositorio>();
+
             //Api
             builder.Services.AddScoped<IServicio_API, Servicio_API>();
-
-
+            builder.Services.AddScoped<IServiciosAPIproductos, ServiciosAPIproductos>();
 
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 

@@ -2,7 +2,6 @@
 using Clientes.DAL;
 using Clientes.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.SqlServer.Server;
 
 namespace Clientes.BLL
 {
@@ -25,13 +24,13 @@ namespace Clientes.BLL
         }
 
 
-        public async Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int? id)
         {
            return await _clienteRepositorio.Eliminar(id);
         }
 
 
-        public async Task<MostrarClienteDTO> ObtenerPorId(int id)
+        public async Task<MostrarClienteDTO> ObtenerPorId(int? id)
         {
             return await _clienteRepositorio.ObtenerPorId(id);
         }

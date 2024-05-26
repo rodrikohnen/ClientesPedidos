@@ -1,0 +1,77 @@
+﻿@using Clientes.Models
+@model CrearPedidoModel
+@{
+    ViewData["Title"] = "AgregarProductoPedido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Elige la Cantidad</h1>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Producto</title>
+        <script>
+            function actualizarSubtotal() {
+                var cantidad = document.getElementById("Cantidad").value;
+                var precio = document.getElementById("Precio").value;
+                var subtotal = cantidad * precio;
+                document.getElementById("Subtotal").innerText = subtotal.toFixed(3);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-header">
+                @ViewBag.Accion
+            </div>
+            <div class="card-body">
+
+                <form asp-action="AgregarProductoPedido" asp-controller="Home" method="post">
+
+                    <div class="mb-2">
+                        <label class="form-label"></label>
+                        <input type="hidden" class="form-control form_control-sm" asp-for="ProductoId" readonly/>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Codigo</label>
+                        <input type="text" class="form-control form_control-sm" asp-for="ProductoCodigo" readonly/>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Descripcion</label>
+                        <input type="text" class="form-control form_control-sm" asp-for="ProductoDescripcion" readonly />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Unidad</label>
+                        <input type="text" class="form-control form_control-sm" asp-for="ProductoUnidad" readonly/>
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Precio Unidad</label>
+                    <input type="number" id="Precio" value="@Model.ProductoPrecio" oninput="actualizarSubtotal()" class="form-control form_control-sm" asp-for="ProductoPrecio" readonly />
+                    </div>
+
+                    <div class="mb-2">
+                        <label class="form-label">Cantidad</label>
+                    <input type="number" id="Cantidad" value="@Model.ProductoCantidad" oninput="actualizarSubtotal()" class="form-control form_control-sm" asp-for="ProductoCantidad" step="1" />
+                    </div>
+
+                    <h2>Subtotal: <span id="Subtotal">@(Model.ProductoCantidad * Model.ProductoPrecio)$</span></h2>
+
+                    <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+                    <a asp-action="AgregarPedido" asp-controller="Home" class="btn btn-warning btn-sm"> Volver a la Lista </a>
+
+                </form>
+
+                <hr />
+
+
+
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,70 @@
+﻿@using Clientes.Models
+@model PedidoModel
+
+@{
+    ViewData["Title"] = "AgregarPedido";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Agregar Productos</h1>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Producto</title>
+        <script>
+            function actualizarSubtotal() {
+                var cantidad = document.getElementById("Cantidad").value;
+                var precio = document.getElementById("Precio").value;
+                var subtotal = cantidad * precio;
+                document.getElementById("Subtotal").innerText = subtotal.toFixed(3);
+            }
+        </script>
+    </head>
+    <body>
+        <div class="card">
+            <div class="card-header">
+            </div>
+            <div class="card-body">
+
+                <a asp-action="Index" asp-controller="Home" class="btn btn-success btn-sm"> Hacer Pedido </a>
+
+                <hr />
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Codigo</th>
+                            <th>Descripcion</th>
+                            <th>Unidad</th>
+                            <th>Precio por Unidad</th>
+                            <th>Cantidad</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.RenglonesPedidos)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Codigo</td>
+                                <td>@item.Descripcion</td>
+                                <td>@item.Unidad</td>
+                                <td>@item.PrecioUnidad</td>
+                                <td>@item.Cantidad</td>
+                                <td>@item.Subtotal</td>                               
+                                <td>
+                                    <a asp-action="AgregarProductoPedido" asp-controller="Home" asp-route-idProducto=@item.Id asp-route-Codigo=@item.Codigo asp-route-Descripcion=@item.Descripcion asp-route-Unidad=@item.Unidad asp-route-Precio=@item.PrecioUnidad asp-route-idCliente=@Model.ClienteId asp-route-Name=@Model.ClienteName asp-route-Nro=@Model.ClienteNroDocumento asp-route-Tipo=@Model.ClienteTipoDeDocumento class="btn btn-primary btn-sm"> Agregar </a>
+                                </td>
+                        
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <a asp-action="Index" asp-controller="Home" class="btn btn-warning btn-sm"> Volver al Administrador de Clientes </a>
+            </div>
+        </div>
+    </body>
+</html>

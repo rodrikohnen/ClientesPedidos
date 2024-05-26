@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Clientes.BLL
+﻿namespace Clientes.BLL
 {
     public interface IGenericoServicio<DTOCreacion, DTO>
     {
@@ -12,9 +6,9 @@ namespace Clientes.BLL
 
         Task<DTO> Actualizar(int? id, DTOCreacion modelo);
 
-        Task<bool> Eliminar(int id);
+        Task<bool> Eliminar(int? id);
 
-        Task<DTO> ObtenerPorId(int id);
+        Task<DTO> ObtenerPorId(int? id);
 
         Task<List<DTO>> ObtenerTodos();
     }

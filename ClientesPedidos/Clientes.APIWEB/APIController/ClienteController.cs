@@ -1,6 +1,5 @@
 ﻿using Clientes.BLL;
 using Clientes.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clientes.APIWEB.Controllers

@@ -1,0 +1,49 @@
+﻿@using Clientes.Models
+@model CrearProductoServiciosModel
+@{
+    ViewData["Title"] = "RegistrarProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registrar Producto</h1>
+
+<div class="card">
+    <div class="card-header">
+        @ViewBag.Accion
+    </div>
+    <div class="card-body">
+
+        <form asp-action="RegistrarProductoView" asp-controller="Home" method="post">            
+
+            <div class="mb-2">
+                <label class="form-label">Codigo</label>
+                <input type="text" class="form-control form_control-sm" asp-for="Codigo" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Descripcion</label>
+                <input type="text" class="form-control form_control-sm" asp-for="Descripcion" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Unidad</label>
+                <input type="text" class="form-control form_control-sm" asp-for="Unidad" />
+            </div>
+
+            <div class="mb-2">
+                <label class="form-label">Precio Unidad</label>
+                <input type="number" class="form-control form_control-sm" asp-for="PrecioUnidad" step="0.01" />
+            </div>
+
+            <button type="submit" class="btn btn-success btn-sm">Guardar</button>
+            <a asp-action="Productos" asp-controller="Home" class="btn btn-warning btn-sm"> Volver a la Lista </a>
+
+        </form>
+
+        <hr />
+
+
+
+    </div>
+</div>
+
