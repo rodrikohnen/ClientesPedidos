@@ -16,6 +16,11 @@ Instalación:<br>
 
 •	Pueden ver la documentación de Swagger de la API con validaciones agregando a la url "/swagger"
 
+<h1>Arquitectura :<h1>
+
+![arquitecturaCapas](https://github.com/rodrikohnen/Clientes/assets/49579752/661eec96-de7f-44d1-b045-1f7ef3efba75)
+
+
 
                                                                                                                                                                         
 
