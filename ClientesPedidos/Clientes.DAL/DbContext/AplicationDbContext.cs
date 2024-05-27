@@ -10,6 +10,13 @@ namespace Clientes.DAL.Dbcontext
         {
 
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            SeedClientes.Seed(modelBuilder);
+            SeedProductos.Seed(modelBuilder);           
+        }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Producto> Productos { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }

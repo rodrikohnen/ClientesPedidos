@@ -16,7 +16,7 @@
                 var cantidad = document.getElementById("Cantidad").value;
                 var precio = document.getElementById("Precio").value;
                 var subtotal = cantidad * precio;
-                document.getElementById("Subtotal").innerText = subtotal.toFixed(3);
+                document.getElementById("Subtotal").innerText = subtotal;
             }
         </script>
     </head>
@@ -59,7 +59,7 @@
                     <input type="number" id="Cantidad" value="@Model.ProductoCantidad" oninput="actualizarSubtotal()" class="form-control form_control-sm" asp-for="ProductoCantidad" step="1" />
                     </div>
 
-                    <h2>Subtotal: <span id="Subtotal">@(Model.ProductoCantidad * Model.ProductoPrecio)$</span></h2>
+                <h2>Subtotal: <span id="Subtotal">@(Model.ProductoPrecio * Model.ProductoCantidad)$</span></h2>
 
                     <button type="submit" class="btn btn-success btn-sm">Guardar</button>
                     <a asp-action="AgregarPedido" asp-controller="Home" class="btn btn-warning btn-sm"> Volver a la Lista </a>

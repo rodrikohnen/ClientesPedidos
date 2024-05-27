@@ -19,7 +19,7 @@ namespace Clientes.APIWEB.APIController
             _pedidoService = pedidoService;
             _renglonService = renglonService;
         }
-        
+        /*
         [HttpGet]
         public async Task<ActionResult<MostrarPedidoDTO>> ListarporID(int id)
         {
@@ -122,6 +122,6 @@ namespace Clientes.APIWEB.APIController
             }
 
         }
-
+        */
     }
 }

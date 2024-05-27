@@ -240,7 +240,7 @@ namespace Clientes.APIWEB.Controllers
                 ProductoCodigo = Codigo,
                 ProductoDescripcion = Descripcion,
                 ProductoUnidad = Unidad,
-                ProductoPrecio = Precio,
+                ProductoPrecio = Precio/1000,
                 ProductoCantidad = 0,                
             };
           
